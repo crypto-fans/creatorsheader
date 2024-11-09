@@ -258,7 +258,7 @@ main {
   -o-user-select: none;
 }
 
-.artist img {
+.artist-img-container img {
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid rgba(169, 150, 253, 0.5);
@@ -268,11 +268,12 @@ main {
   box-shadow: rgba(221, 221, 221, 0.3) 0px 6px 18px -3px,
     rgba(221, 221, 221, 0.2) 0px -3px 0px inset;
   transition: all 0.2s;
+  pointer-events: none;
 }
 
-.artist img:hover {
-  border: 4px solid rgba(169, 150, 253, 0.6);
-}
+.artist-img-container:hover img {
+   border: 4px solid rgba(169, 150, 253, 0.6);
+} 
 
 .artist p {
   font-size: clamp(0.9rem, 3vw, 1rem);
@@ -319,9 +320,10 @@ main {
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s;
+  pointer-events: none;
 }
 
-.album-frame img:hover {
+.album-frame:hover img {
   transform: rotate(3deg) scale(1.2);
 }
 
@@ -329,18 +331,11 @@ main {
   font-size: clamp(0.9rem, 4vw, 1.1rem);
   font-weight: 500;
   line-height: 1.3;
-  white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-
-  @supports (-webkit-line-clamp: 2) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: initial;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .album p {
@@ -727,7 +722,7 @@ main {
   }
 
   .swiper-slide {
-    width: 320px;
+    width: 280px;
   }
 
   .swiper-slide img {
@@ -748,7 +743,7 @@ main {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
   main {
     grid-template-columns: 15% 85%;
   }
@@ -801,6 +796,10 @@ main {
   .song:nth-child(9) {
     display: grid;
   }
+  
+  #progress {
+    width: 60%;
+  }
 
   .controls button {
     margin: 20px;
@@ -809,7 +808,7 @@ main {
 
 @media (max-width: 580px) {
   .swiper-slide {
-    width: 340px;
+    width: 290px;
   }
 
   .swiper-slide img {
@@ -840,7 +839,7 @@ main {
   }
 
   .swiper-slide {
-    width: 320px;
+    width: 280px;
   }
 
   .slide-overlay {
