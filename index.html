@@ -5,22 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Popular Playlist</title>
   
-  <!-- Enlace a CSS externo -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Enlace a Swiper CSS (estilo local dentro del archivo) -->
+  <style>
+    /* Reset de algunos estilos */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Estilo básico para el cuerpo y el contenedor principal */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    main {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .slider-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Swiper y sus elementos */
+    .swiper {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .swiper-slide {
+      width: 100%;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Overlay para mostrar el título y el botón */
+    .slide-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+    }
+
+    .slide-overlay h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .slide-overlay button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .slide-overlay button:hover {
+      background-color: #ff4f3e;
+    }
+
+    /* Estilo para la paginación */
+    .swiper-pagination {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .swiper-pagination span {
+      width: 10px;
+      height: 10px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .swiper-pagination .active {
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+  </style>
   
-  <!-- Enlace a Swiper CSS (si no está incluido en el archivo local) -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-  >
-  
-  <!-- Enlace a Font Awesome para íconos -->
+  <!-- Enlace a Font Awesome para los íconos -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
   >
-</head> <!-- Cerrar la etiqueta <head> aquí -->
 
+  <!-- Enlace a Swiper JS (librería de Swiper en línea) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
 <body>
   <main>
     <div class="slider-container">
@@ -82,5 +186,19 @@
       </div>
     </div>
   </main>
+
+  <script>
+    // Inicialización de Swiper
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 5000, // Intervalo de 5 segundos
+      },
+    });
+  </script>
 </body>
 </html>
